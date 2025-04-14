@@ -117,12 +117,18 @@
     }
     
     .hero-image {
-        max-width: 100%;
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        max-width: 80%;
         position: relative;
     }
     
     .hero-image img {
-        max-width: 100%;
+        max-width: 80%;
+        height: auto;
+        margin: 0;
+        padding: 0;
     }
     
     /* About section */
