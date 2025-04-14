@@ -120,12 +120,12 @@
         flex: 1;
         display: flex;
         justify-content: flex-end;
-        max-width: 80%;
+        max-width: 70%;
         position: relative;
     }
     
     .hero-image img {
-        max-width: 80%;
+        max-width: 70%;
         height: auto;
         margin: 0;
         padding: 0;
