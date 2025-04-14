@@ -1,4 +1,4 @@
-       /* Base styles */
+      /* Base styles */
        :root {
         --purple: #bb5bf1;
         --dark: #121212;
@@ -64,9 +64,6 @@
         align-items: center;
         justify-content: space-between;
         padding: 80px 0;
-        margin: 0;
-        width: 100%;
-        max-width: 100vw;
         position: relative;
     }
     
@@ -117,23 +114,20 @@
     .btn-primary:hover, .btn-secondary:hover {
         transform: translateY(-3px);
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-
-           
- .hero-image {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end; 
-}
-
-.hero-img {
-    max-width: 60%; 
-    height: auto;
-}
-
+    }
+    
+    .hero-image {
+        max-width: 100%;
+        position: relative;
+    }
+    
+    .hero-image img {
+        max-width: 100%;
+    }
     
     /* About section */
     .about {
-        padding: 20px 0;
+        padding: 80px 0;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -181,7 +175,7 @@
     
     /* Services section */
     .services {
-        padding: 20px 0;
+        padding: 80px 0;
     }
     
     .section-header {
