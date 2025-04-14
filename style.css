@@ -118,7 +118,7 @@
     
     .hero-image {
         max-width: 100%;
-        position: relative;
+        position: flex-end;
     }
     
     .hero-image img {
