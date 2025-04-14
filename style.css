@@ -114,13 +114,17 @@
     .btn-primary:hover, .btn-secondary:hover {
         transform: translateY(-3px);
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    }
-    
-    .hero-image {
-        max-width: 60%;
-        height: auto;
-        margin-left: auto;
-        display: block;
+
+           
+ .hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end; 
+}
+
+.hero-img {
+    max-width: 60%; 
+    height: auto;
 }
 
     
