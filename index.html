@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hanine Slimani - Data Analyst Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base styles */
+        :root {
+            --purple: #bb5bf1;
+            --dark: #121212;
+            --darker: #0a0a0a;
+            --light: #ffffff;
+            --gray: #2a2a2a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--purple);
+        }
+        
+        /* Hero section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .hero-content h1 span {
+            color: var(--purple);
+            display: block;
+            font-size: 3.5rem;
+            margin: 10px 0;
+        }
+        
+        .hero-content h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background-color: var(--purple);
+            color: var(--light);
+            border: none;
+        }
+        
+        .btn-secondary {
+            background-color: var(--gray);
+            color: var(--light);
+            border: none;
+        }
+        
+        .btn-primary:hover, .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-image {
+            max-width: 100%;
+            position: relative;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+        }
+        
+        /* About section */
+        .about {
+            padding: 80px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .about-image {
+            flex: 1;
+        }
+        
+        .about-content {
+            flex: 1;
+            padding-left: 50px;
+        }
+        
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .about-content h2 span {
+            color: var(--purple);
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .skills {
+            margin-top: 30px;
+        }
+        
+        .skills h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .skills ul {
+            list-style: none;
+        }
+        
+        .skills ul li {
+            margin-bottom: 8px;
+        }
+        
+        /* Services section */
+        .services {
+            padding: 80px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h3 {
+            color: var(--purple);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--gray);
+            padding: 30px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--purple);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            margin-bottom: 15px;
+        }
+        
+        .service-card p {
+            line-height: 1.6;
+        }
+        
+        /* Projects section */
+        .projects {
+            padding: 80px 0;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            gap: 15px;
+        }
+        
+        .filter-button {
+            background-color: var(--gray);
+            color: var(--light);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-button.active, .filter-button:hover {
+            background-color: var(--purple);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: var(--gray);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            height: 250px;
+            cursor: pointer;
+        }
+        
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+        
+        .project-card:hover img {
+            transform: scale(1.1);
+        }
+        
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .project-category {
+            color: var(--purple);
+            margin-bottom: 15px;
+        }
+        
+        /* Contact section */
+        .contact {
+            padding: 80px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .contact-image {
+            flex: 1;
+        }
+        
+        .contact-form {
+            flex: 1;
+            padding-left: 50px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--gray);
+            border: none;
+            border-radius: 5px;
+            color: var(--light);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            background-color: var(--darker);
+        }
+        
+        .footer-nav {
+            margin-bottom: 20px;
+        }
+        
+        .footer-nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        .footer-nav ul li {
+            margin: 0 15px;
+        }
+        
+        .footer-nav ul li a {
+            color: var(--light);
+            text-decoration: none;
+        }
+        
+        .social-links {
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--gray);
+            color: var(--light);
+            margin: 0 10px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--purple);
+            transform: translateY(-3px);
+        }
+
+        .purple-box {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background-color: var(--purple);
+            z-index: -1;
+        }
+        
+        .gray-box {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 150px;
+            height: 150px;
+            background-color: #444;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="purple-box"></div>
+    <div class="gray-box"></div>
+    
+    <div class="container">
+        <header>
+            <div class="logo">Hanine Slimani</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Hello, <span>I'm Hanine Slimani</span></h1>
+                <h2>Data Analyst</h2>
+                <div class="btn-group">
+                    <a href="#contact" class="btn btn-primary">Hire me</a>
+                    <a href="#" class="btn btn-secondary">Download CV <i class="fas fa-download"></i></a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://via.placeholder.com/500x400" alt="Data analyst illustration">
+            </div>
+        </section>
+        
+        <section id="about" class="about">
+            <div class="about-image">
+                <img src="https://via.placeholder.com/500x400" alt="Workspace illustration">
+            </div>
+            <div class="about-content">
+                <h2>About <span>me</span></h2>
+                <p>I'm Hanine Slimani, I am a junior Data Analyst. I built a good background in the field and obtained several certificates from Google, IBM and 365datascience.</p>
+                
+                <div class="skills">
+                    <h3>SKILLS:</h3>
+                    <ul>
+                        <li>1) MS Excel / Google Sheets</li>
+                        <li>2) PowerBI</li>
+                        <li>3) SQL</li>
+                        <li>4) Python</li>
+                        <li>5) Analytical Thinking</li>
+                        <li>6) Data Visualization</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="services" class="services">
+            <div class="section-header">
+                <h3>My Services</h3>
+                <h2>What I Do</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Data Analysis</h3>
+                    <p>I can do quantitative, and qualitative analysis using Excel, SQL and Python. I prepare, clean, analyze, and identify trends and patterns, then make recommendations for business action.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Web Scraping</h3>
+                    <p>I can collect and extract data from websites using Python libraries like BeautifulSoup and Selenium. This data can then be cleaned, analyzed, and used for various business intelligence purposes.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3>Data Visualization</h3>
+                    <p>I can do the design and development of data visualizations and interactive dashboards, using Excel, PowerBI and Tableau.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="projects" class="projects">
+            <div class="section-header">
+                <h3>My Jobs</h3>
+                <h2>Recent Projects</h2>
+            </div>
+            
+            <div class="filter-buttons">
+                <button class="filter-button active" data-filter="all">All</button>
+                <button class="filter-button" data-filter="excel">Excel</button>
+                <button class="filter-button" data-filter="powerbi">PowerBI</button>
+                <button class="filter-button" data-filter="python">Python</button>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card" data-category="excel powerbi">
+                    <img src="https://via.placeholder.com/400x300" alt="Sales Dashboard">
+                    <div class="project-overlay">
+                        <h3 class="project-title">Sales Dashboard</h3>
+                        <p class="project-category">Excel, PowerBI</p>
+                        <a href="#" class="btn btn-primary">View Project</a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card" data-category="python">
+                    <img src="https://via.placeholder.com/400x300" alt="Data Cleaning">
+                    <div class="project-overlay">
+                        <h3 class="project-title">Customer Segmentation</h3>
+                        <p class="project-category">Python</p>
+                        <a href="#" class="btn btn-primary">View Project</a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card" data-category="powerbi sql">
+                    <img src="https://via.placeholder.com/400x300" alt="Market Analysis">
+                    <div class="project-overlay">
+                        <h3 class="project-title">Market Analysis</h3>
+                        <p class="project-category">SQL, PowerBI</p>
+                        <a href="#" class="btn btn-primary">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact" class="contact">
+            <div class="contact-image">
+                <img src="https://via.placeholder.com/500x400" alt="Contact illustration">
+            </div>
+            <div class="contact-form">
+                <h2>Got a project in <span style="color: var(--purple);">mind?</span></h2>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your name</label>
+                        <input type="text" id="name" class="form-control" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your email</label>
+                        <input type="email" id="email" class="form-control" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" class="form-control" placeholder="Message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#about"><i class="fas fa-user"></i> About me</a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Project filtering
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-button');
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    projectCards.forEach(card => {
+                        if (filter === 'all') {
+                            card.style.display = 'block';
+                        } else {
+                            const categories = card.getAttribute('data-category');
+                            if (categories.includes(filter)) {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+            
+            // Form submission
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // Here you would typically send the form data to a server
+                    alert('Your message has been sent. Thank you!');
+                    contactForm.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
