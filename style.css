@@ -141,7 +141,7 @@
     
     .about-image {
         flex: 1;
-        max-width: 65%;
+        max-width: 70%;
         height: auto;
         margin: 0 auto;
     }
@@ -326,7 +326,7 @@
     
     .contact-image {
         flex: 1;
-        max-width: 50%;
+        max-width: 60%;
         height: auto;
         margin-right: auto;
         margin-left: 0;
