@@ -254,40 +254,47 @@
             }
         });
     </script>
-
-    <script>
-  const filterButtons = document.querySelectorAll(".filter-button");
-  const projectCards = document.querySelectorAll(".project-card");
+    
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const projects = document.querySelectorAll(".project-card");
 
   filterButtons.forEach(button => {
     button.addEventListener("click", () => {
-      const filter = button.getAttribute("data-filter");
+      const selectedCategory = button.dataset.category;
 
-      // Update active state
-      filterButtons.forEach(btn => btn.classList.remove("active"));
-      button.classList.add("active");
+      projects.forEach(project => {
+        project.classList.add("hidden"); // Hide all initially
 
-      projectCards.forEach(card => {
-        const category = card.getAttribute("data-category");
-        const isExtra = card.classList.contains("extra-project");
+        // Show one project by default for each category
+        const matched = Array.from(projects).filter(p => {
+          return selectedCategory === "all" || p.dataset.category === selectedCategory;
+        });
 
-        if (filter === "all") {
-          if (isExtra) {
-            card.style.display = "none";
-          } else {
-            card.style.display = "block";
-          }
+        if (selectedCategory === "all") {
+          // Show only the first of each category
+          const shownCategories = new Set();
+          matched.forEach(p => {
+            if (!shownCategories.has(p.dataset.category)) {
+              shownCategories.add(p.dataset.category);
+              p.classList.remove("hidden");
+            }
+          });
         } else {
-          if (category.includes(filter)) {
-            card.style.display = "block";
-          } else {
-            card.style.display = "none";
-          }
+          // Show all projects matching the filter
+          matched.forEach(p => p.classList.remove("hidden"));
         }
       });
+
+      // Set active button styling
+      filterButtons.forEach(btn => btn.classList.remove("active"));
+      button.classList.add("active");
     });
   });
-</script>
+});
+
+  </script>
 
 </body>
 </html>
