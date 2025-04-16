@@ -141,6 +141,9 @@
     
     .about-image {
         flex: 1;
+        max-width: 65%;
+        height: auto;
+        margin: 0 auto;
     }
     
     .about-content {
@@ -323,6 +326,10 @@
     
     .contact-image {
         flex: 1;
+        max-width: 50%;
+        height: auto;
+        margin-right: auto;
+        margin-left: 0;
     }
     
     .contact-form {
