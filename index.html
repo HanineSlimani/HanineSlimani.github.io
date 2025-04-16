@@ -92,51 +92,82 @@
             </div>
         </section>
         
-        <section id="projects" class="projects">
-            <div class="section-header">
-                <h3>My Jobs</h3>
-                <h2>Recent Projects</h2>
-            </div>
-            
-            <div class="filter-buttons">
-                <button class="filter-button active" data-filter="all">All</button>
-                <button class="filter-button" data-filter="excel">Excel</button>
-                <button class="filter-button" data-filter="powerbi">PowerBI</button>
-                <button class="filter-button" data-filter="python">Python</button>
-            </div>
-            
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card" data-category="excel">
-                    <img src="" alt="Sales Dashboard">
-                    <div class="project-overlay">
-                        <h3 class="project-title">Sales Dashboard</h3>
-                        <p class="project-category">Excel</p>
-                        <a href="#" class="btn btn-primary">View Project</a>
-                    </div>
-                </div>
-                
-                <!-- Project 2 -->
-                <div class="project-card" data-category="python">
-                    <img src="https://via.placeholder.com/400x300" alt="Exploratory Data Analysis">
-                    <div class="project-overlay">
-                        <h3 class="project-title">Customer Segmentation</h3>
-                        <p class="project-category">Python</p>
-                        <a href="#" class="btn btn-primary">View Project</a>
-                    </div>
-                </div>
-                
-                <!-- Project 3 -->
-                <div class="project-card" data-category="powerbi sql">
-                    <img src="https://via.placeholder.com/400x300" alt="Market Analysis">
-                    <div class="project-overlay">
-                        <h3 class="project-title">Market Analysis</h3>
-                        <p class="project-category">SQL, PowerBI</p>
-                        <a href="#" class="btn btn-primary">View Project</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+       <section id="projects" class="projects">
+          <div class="section-header">
+            <h3>My Jobs</h3>
+            <h2>Recent Projects</h2>
+          </div>
+
+          <div class="filter-buttons">
+            <button class="filter-button active" data-filter="all">All</button>
+            <button class="filter-button" data-filter="excel">Excel</button>
+            <button class="filter-button" data-filter="powerbi">PowerBI</button>
+            <button class="filter-button" data-filter="python">Python</button>
+         </div>
+
+         <div class="projects-grid">
+         <!-- Excel Project 1 -->
+            <div class="project-card" data-category="excel">
+              <img src="img/personal-finance.jpg" alt="Personal Finance Tracker">
+      <div class="project-overlay">
+        <h3 class="project-title">Personal Finance Tracker</h3>
+        <p class="project-category">Excel</p>
+        <a href="#" class="btn btn-primary">View Project</a>
+      </div>
+    </div>
+
+    <!-- Excel Project 2 (hidden initially) -->
+    <div class="project-card extra-project" data-category="excel">
+      <img src="img/sales-dashboard.jpg" alt="Sales Dashboard">
+      <div class="project-overlay">
+        <h3 class="project-title">Sales Dashboard</h3>
+        <p class="project-category">Excel</p>
+        <a href="#" class="btn btn-primary">View Project</a>
+      </div>
+    </div>
+
+    <!-- Power BI Project 1 -->
+    <div class="project-card" data-category="powerbi">
+      <img src="img/retail-dashboard.jpg" alt="Retail Insights">
+      <div class="project-overlay">
+        <h3 class="project-title">Retail Insights</h3>
+        <p class="project-category">Power BI</p>
+        <a href="#" class="btn btn-primary">View Project</a>
+      </div>
+    </div>
+
+    <!-- Power BI Project 2 (hidden initially) -->
+    <div class="project-card extra-project" data-category="powerbi">
+      <img src="img/sql-powerbi.jpg" alt="HR Analytics">
+      <div class="project-overlay">
+        <h3 class="project-title">HR Analytics (SQL + Power BI)</h3>
+        <p class="project-category">Power BI, SQL</p>
+        <a href="#" class="btn btn-primary">View Project</a>
+      </div>
+    </div>
+
+    <!-- Python Project 1 -->
+    <div class="project-card" data-category="python">
+      <img src="img/eda.jpg" alt="Exploratory Data Analysis">
+      <div class="project-overlay">
+        <h3 class="project-title">Exploratory Data Analysis</h3>
+        <p class="project-category">Python</p>
+        <a href="#" class="btn btn-primary">View Project</a>
+      </div>
+    </div>
+
+    <!-- Python Project 2 (hidden initially) -->
+    <div class="project-card extra-project" data-category="python">
+      <img src="img/data-scraping.jpg" alt="Data Scraping and Analysis">
+      <div class="project-overlay">
+        <h3 class="project-title">Web Scraping + Visualization</h3>
+        <p class="project-category">Python</p>
+        <a href="#" class="btn btn-primary">View Project</a>
+      </div>
+    </div>
+  </div>
+</section>
+
         
         <section id="contact" class="contact">
             <div class="contact-image">
@@ -223,5 +254,40 @@
             }
         });
     </script>
+
+    <script>
+  const filterButtons = document.querySelectorAll(".filter-button");
+  const projectCards = document.querySelectorAll(".project-card");
+
+  filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      const filter = button.getAttribute("data-filter");
+
+      // Update active state
+      filterButtons.forEach(btn => btn.classList.remove("active"));
+      button.classList.add("active");
+
+      projectCards.forEach(card => {
+        const category = card.getAttribute("data-category");
+        const isExtra = card.classList.contains("extra-project");
+
+        if (filter === "all") {
+          if (isExtra) {
+            card.style.display = "none";
+          } else {
+            card.style.display = "block";
+          }
+        } else {
+          if (category.includes(filter)) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        }
+      });
+    });
+  });
+</script>
+
 </body>
 </html>
