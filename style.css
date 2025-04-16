@@ -315,6 +315,10 @@
         color: var(--purple);
         margin-bottom: 15px;
     }
+    .extra-project {
+  display: none;
+    }
+
     
     /* Contact section */
     .contact {
