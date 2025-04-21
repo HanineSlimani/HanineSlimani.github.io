@@ -235,6 +235,28 @@
 
     /* Review section */
 
+.testimonials-section {
+    margin: 40px 0;
+}
+
+.section-title {
+    text-align: center;
+    color: #ffffff;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #a0a0a0;
+    font-size: 1rem;
+    margin-bottom: 25px;
+}
+
+.highlight {
+    color: #b052dd;
+}
+
    .testimonial-container {
     background-color: #1a1a1a;
     border-radius: 8px;
@@ -336,7 +358,26 @@
     display: block;
     animation: fadeIn 0.5s;
 }
+.review-image {
+    width: 100%;
+    border-radius: 6px;
+    overflow: hidden;
+}
 
+.review-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.testimonial-container {
+    padding: 25px;
+}
+
+.source-link {
+    text-align: center;
+    margin-top: 15px;
+}
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
