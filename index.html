@@ -91,6 +91,69 @@
                 </div>
             </div>
         </section>
+
+        <div class="testimonial-container">
+    <div class="testimonial-slide active">
+        <div class="testimonial-header">
+            <div class="client-info">
+                <h4 class="client-name">John D.</h4>
+                <p class="client-title">Marketing Manager</p>
+                <div class="rating">★★★★★</div>
+            </div>
+        </div>
+        <p class="testimonial-text">"Hanine's financial tracker completely transformed how I manage my business finances. The interactive dashboard is intuitive and provides insights I never had before. Highly recommend for any business owner!"</p>
+        <div class="source-link">
+            <a href="https://www.fiverr.com/your-profile" target="_blank">
+                <img src="https://fiddle.jshell.net/img/favicon.png" alt="Fiverr" class="source-icon">
+                Verified on Fiverr
+            </a>
+        </div>
+    </div>
+
+    <div class="testimonial-slide">
+        <div class="testimonial-header">
+            <div class="client-info">
+                <h4 class="client-name">Sarah M.</h4>
+                <p class="client-title">Small Business Owner</p>
+                <div class="rating">★★★★★</div>
+            </div>
+        </div>
+        <p class="testimonial-text">"The personal finance tracker Hanine created has saved me countless hours each month. The automated calculations and beautiful visuals make tracking expenses a breeze. Worth every penny!"</p>
+        <div class="source-link">
+            <a href="https://www.fiverr.com/your-profile" target="_blank">
+                <img src="https://fiddle.jshell.net/img/favicon.png" alt="Fiverr" class="source-icon">
+                Verified on Fiverr
+            </a>
+        </div>
+    </div>
+
+    <div class="testimonial-slide">
+        <div class="testimonial-header">
+            <div class="client-info">
+                <h4 class="client-name">Michael R.</h4>
+                <p class="client-title">Freelance Designer</p>
+                <div class="rating">★★★★★</div>
+            </div>
+        </div>
+        <p class="testimonial-text">"Hanine is exceptional to work with! She delivered a custom financial dashboard that perfectly fit my needs. The Excel formulas are brilliant and everything is so user-friendly. Already hired her for a second project!"</p>
+        <div class="source-link">
+            <a href="https://www.fiverr.com/your-profile" target="_blank">
+                <img src="https://fiddle.jshell.net/img/favicon.png" alt="Fiverr" class="source-icon">
+                Verified on Fiverr
+            </a>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="arrow-btn prev-btn">❮</button>
+        <div>
+            <span class="nav-dot active" onclick="currentSlide(1)"></span>
+            <span class="nav-dot" onclick="currentSlide(2)"></span>
+            <span class="nav-dot" onclick="currentSlide(3)"></span>
+        </div>
+        <button class="arrow-btn next-btn">❯</button>
+    </div>
+</div>
         
        <section id="projects" class="projects">
           <div class="section-header">
@@ -295,6 +358,53 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
   </script>
+  <script>
+let slideIndex = 1;
+showSlides(slideIndex);
 
+// Auto-rotate testimonials
+setInterval(function() {
+    plusSlides(1);
+}, 8000); // Change testimonial every 8 seconds
+
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("testimonial-slide");
+    let dots = document.getElementsByClassName("nav-dot");
+    
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    
+    for (i = 0; i < slides.length; i++) {
+        slides[i].className = slides[i].className.replace(" active", "");
+    }
+    
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    
+    slides[slideIndex-1].className += " active";
+    dots[slideIndex-1].className += " active";
+}
+
+// Add event listeners when DOM is fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+        plusSlides(-1);
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+        plusSlides(1);
+    });
+});
+  </script>
 </body>
 </html>
