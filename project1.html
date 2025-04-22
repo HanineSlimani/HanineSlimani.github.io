@@ -146,25 +146,90 @@
             margin-bottom: 2rem;
         }
 
-        .screenshots {
-            margin-top: 2rem;
+      /* Screenshots Section */
+          /* Carousel container */
+        .carousel-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 50px;
         }
-
-        .screenshot-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+        
+        /* Screenshot slides */
+        .screenshot-slides {
+            display: none;
+            padding: 20px;
+            border-left: 4px solid #9c27b0; /* Purple border like reviews */
         }
-
-        .screenshot-grid img {
+        
+        .screenshot-content {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .screenshot-image {
             width: 100%;
             height: auto;
-            transition: transform 0.3s ease;
+            border-radius: 6px;
         }
-
-        .screenshot-grid img:hover {
-            transform: scale(1.03);
+        
+        .screenshot-caption {
+            font-size: 16px;
+            font-style: italic;
+            margin-top: 15px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Navigation buttons */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 50%;
+            user-select: none;
+            background-color: rgba(0, 0, 0, 0.5);
+            text-decoration: none;
+        }
+        
+        .prev {
+            left: 0;
+        }
+        
+        .next {
+            right: 0;
+        }
+        
+        .prev:hover, .next:hover {
+            background-color: rgba(156, 39, 176, 0.8); /* Purple on hover */
+        }
+        
+        /* Dots/indicators */
+        .dots-container {
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        .dot {
+            height: 10px;
+            width: 10px;
+            margin: 0 5px;
+            background-color: #555;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        
+        .active-dot {
+            background-color: #9c27b0; /* Purple active dot */
         }
 
      
@@ -451,17 +516,51 @@
             </div>
      <div class="screenshots">
       <h2>Screenshots</h2>
-        <div class="screenshot-grid">
-
+        <div class="carousel-container">
+ <div class="screenshot-slides">
+            <div class="screenshot-content">
      <img src="Images/Finance Tracker.png" alt="Finance Tracker" class="project-image"/>   
+<p class="screenshot-caption">Budget Dashboard - Provides comprehensive financial overview with expense categorization and visual charts.</p>
+            </div>
+        </div>
+       <div class="screenshot-slides">
+            <div class="screenshot-content">    
      <img src="Images/Budget Planning.png" alt="Budget Planning" />
+      <p class="screenshot-caption">Budget Planning - Detailed monthly and yearly planning tool with multi-category tracking and forecasting capabilities.</p>
+            </div>         
   </div>
-               
-       <div class="screenshot-grid">
-     <img src="Images/Data Validation.png" alt="Budget Tracking" />
-     <img src="Images/Conditional Formatting.png" alt="Conditional Formatting" />
+       <div class="screenshot-slides">
+       <div class="screenshot-content">
+     <img src="Images/advanced formulas.png" alt="Advance Formulas" />
+     <p class="screenshot-caption">Advanced formulas and functions to insure an Automated tracking.</p>
   </div>
     </div>
+               
+      <div class="screenshot-slides">
+            <div class="screenshot-content">
+     <img src="Images/Data Validation.png" alt="Budget Tracking" />
+     <p class="screenshot-caption">Data Validation - Advanced data validation and specific lists for different categories to simplify data entry.</p>
+  </div>
+    </div>
+                <div class="screenshot-slides">
+            <div class="screenshot-content">
+     <img src="Images/Conditional Formatting.png" alt="Conditional Formatting" />
+               <p class="screenshot-caption">Conditional Formatting Rules Manager - Advanced data visualization tool for highlighting important metrics.</p>
+            </div>
+        </div>
+        <!-- Navigation arrows -->
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+        
+        <!-- Dots/indicators -->
+        <div class="dots-container">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+    </div>   
+
             <div class="project-outcome">
                 <h2>Outcome & Impact</h2>
                 <p>This finance tracker helped users gain control over their budgets, monitor savings targets, and identify areas where they could reduce expenses. With clear indicators, users could make smarter financial decisions.</p>
@@ -563,6 +662,50 @@
             </div>
         </div>
     </footer>
+   <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+        
+        // Next/previous controls
+        function changeSlide(n) {
+            showSlides(slideIndex += n);
+        }
+        
+        // Thumbnail image controls
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+        
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("screenshot-slides");
+            let dots = document.getElementsByClassName("dot");
+            
+            // Loop back to first slide if beyond last slide
+            if (n > slides.length) {
+                slideIndex = 1;
+            }
+            
+            // Go to last slide if before first slide
+            if (n < 1) {
+                slideIndex = slides.length;
+            }
+            
+            // Hide all slides
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            
+            // Remove active class from all dots
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active-dot", "");
+            }
+            
+            // Show the current slide and mark its dot as active
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active-dot";
+        }
+    </script>
   
   <script>
     let slideIndex = 1;
