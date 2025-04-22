@@ -468,7 +468,7 @@
  </div>
         
     <div class="testimonials-section">
-    <h4 class="section-title">Client <span class="highlight">Reviews</span></h4>
+    <h3 class="section-title">Client <span>class="highlight">Reviews</span></h3>
     <p class="section-subtitle">Verified feedback from my Fiverr clients</p>  
       
           <!-- Testimonial carousel starts here -->
@@ -563,5 +563,53 @@
             </div>
         </div>
     </footer>
+  
+  <script>
+    let slideIndex = 1;
+showSlides(slideIndex);
+
+// Auto-rotate testimonials
+setInterval(function() {
+    plusSlides(1);
+}, 8000); // Change testimonial every 8 seconds
+
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("testimonial-slide");
+    let dots = document.getElementsByClassName("nav-dot");
+    
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    
+    for (i = 0; i < slides.length; i++) {
+        slides[i].className = slides[i].className.replace(" active", "");
+    }
+    
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    
+    slides[slideIndex-1].className += " active";
+    dots[slideIndex-1].className += " active";
+}
+
+// Add event listeners when DOM is fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+        plusSlides(-1);
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+        plusSlides(1);
+    });
+});</script>
 </body>
 </html>
