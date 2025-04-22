@@ -167,6 +167,139 @@
             transform: scale(1.03);
         }
 
+     
+   /* testimonial Section */
+     
+.testimonial-container {
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+    border-left: 4px solid #b052dd;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    max-width: 100%;
+    position: relative;
+}
+
+.testimonial-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.client-info {
+    flex-grow: 1;
+}
+
+.client-name {
+    color: #ffffff;
+    font-weight: bold;
+    margin: 0;
+    font-size: 16px;
+}
+
+.client-title {
+    color: #b052dd;
+    font-size: 14px;
+    margin: 3px 0 0 0;
+}
+
+.rating {
+    color: #b052dd;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.testimonial-text {
+    color: #e0e0e0;
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.source-link {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.source-link a {
+    color: #b052dd;
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.source-link a:hover {
+    text-decoration: underline;
+}
+
+.source-icon {
+    height: 16px;
+    margin-right: 6px;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.nav-dot {
+    height: 8px;
+    width: 8px;
+    background-color: #4d4d4d;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 4px;
+    cursor: pointer;
+}
+
+.nav-dot.active {
+    background-color: #b052dd;
+}
+
+.testimonial-slide {
+    display: none;
+}
+
+.testimonial-slide.active {
+    display: block;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.arrow-btn {
+    background: none;
+    border: none;
+    color: #b052dd;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+.arrow-btn:hover {
+    color: #9e3dce;
+}
+
+@media (max-width: 768px) {
+    .testimonial-container {
+        padding: 15px;
+    }
+    
+    .testimonial-text {
+        font-size: 14px;
+    }
+}
+ 
         /* Back Button */
         .back-button {
             display: inline-flex;
