@@ -281,6 +281,7 @@
         <div class="container">
             <h1>Sales <span>Dashboard</span></h1>
             <p>Dashboard for Sales and Profit Analysis</p>
+             <img src="Images/powerbi-1.png" alt="Sales Dashboard" class="project-image"/> 
         </div>
     </section>
 
@@ -328,12 +329,36 @@
 
             <div class="screenshots">
                 <h2>Screenshots</h2>
-                <div class="screenshot-grid">
+                <div class="screenshot-slides">
                     <img src="Images/powerbi-1.png" alt="Sales Overview Dashboard" />
-                    <img src="Images/powerbi-2.png" alt="Relations Creation" />
-                    <img src="Images/powerbi-3.png" alt="Custom DAX Measures Building" />
-                </div>
+                <p class="screenshot-caption">Budget Dashboard - Provides comprehensive financial overview with expense categorization and visual charts.</p>
             </div>
+        </div>
+          <div class="screenshot-slides">
+            <div class="screenshot-content">       
+                    <img src="Images/powerbi-2.png" alt="Relations Creation" />
+ <p class="screenshot-caption">Budget Dashboard - Provides comprehensive financial overview with expense categorization and visual charts.</p>
+            </div>
+        </div>
+            
+          <div class="screenshot-slides">
+         <div class="screenshot-content">    
+                    <img src="Images/powerbi-3.png" alt="Custom DAX Measures Building" />
+ <p class="screenshot-caption">Budget Dashboard - Provides comprehensive financial overview with expense categorization and visual charts.</p>
+            </div>
+        </div>
+ <!-- Navigation arrows -->
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+        
+        <!-- Dots/indicators -->
+        <div class="dots-container">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+    </div>   
 
             <div class="project-outcome">
                 <h2>Outcome & Impact</h2>
@@ -380,5 +405,97 @@
             </div>
         </div>
     </footer>
+  <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+        
+        // Next/previous controls
+        function changeSlide(n) {
+            showSlides(slideIndex += n);
+        }
+        
+        // Thumbnail image controls
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+        
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("screenshot-slides");
+            let dots = document.getElementsByClassName("dot");
+            
+            // Loop back to first slide if beyond last slide
+            if (n > slides.length) {
+                slideIndex = 1;
+            }
+            
+            // Go to last slide if before first slide
+            if (n < 1) {
+                slideIndex = slides.length;
+            }
+            
+            // Hide all slides
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            
+            // Remove active class from all dots
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active-dot", "");
+            }
+            
+            // Show the current slide and mark its dot as active
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active-dot";
+        }
+    </script>
+  
+  <script>
+    let slideIndex = 1;
+showSlides(slideIndex);
+
+// Auto-rotate testimonials
+setInterval(function() {
+    plusSlides(1);
+}, 8000); // Change testimonial every 8 seconds
+
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("testimonial-slide");
+    let dots = document.getElementsByClassName("nav-dot");
+    
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    
+    for (i = 0; i < slides.length; i++) {
+        slides[i].className = slides[i].className.replace(" active", "");
+    }
+    
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    
+    slides[slideIndex-1].className += " active";
+    dots[slideIndex-1].className += " active";
+}
+
+// Add event listeners when DOM is fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('.prev-btn').addEventListener('click', function() {
+        plusSlides(-1);
+    });
+
+    document.querySelector('.next-btn').addEventListener('click', function() {
+        plusSlides(1);
+    });
+});</script>
 </body>
 </html>
