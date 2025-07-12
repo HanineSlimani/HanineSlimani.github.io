@@ -312,17 +312,43 @@
                 });
             });
             
-            // Form submission
-            const contactForm = document.getElementById('contactForm');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    // Here you would typically send the form data to a server
-                    alert('Your message has been sent. Thank you!');
-                    contactForm.reset();
-                });
-            }
-        });
+           // Initialize EmailJS with your public key
+emailjs.init(G1IqNOPQPv9h7UIMy); // Replace with your actual public key from EmailJS
+
+// Form submission
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form elements
+        const submitBtn = document.querySelector('button[type="submit"]');
+        const buttonText = submitBtn.querySelector('span') || submitBtn; // Handle both cases
+        const originalText = buttonText.textContent;
+        
+        // Show loading state
+        buttonText.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        
+        // Send email using EmailJS
+        emailjs.sendForm(service_t2yei28, ku128hs, this)
+            .then(function() {
+                // Success
+                alert('Your message has been sent successfully! Thank you!');
+                contactForm.reset();
+            })
+            .catch(function(error) {
+                // Error
+                console.error('EmailJS error:', error);
+                alert('Sorry, there was an error sending your message. Please try again.');
+            })
+            .finally(function() {
+                // Reset button state
+                buttonText.textContent = originalText;
+                submitBtn.disabled = false;
+            });
+    });
+}
     </script>
     
   <script>
