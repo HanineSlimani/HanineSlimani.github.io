@@ -322,48 +322,46 @@
          </script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>
-  window.addEventListener('DOMContentLoaded', function(){
+  window.addEventListener('DOMContentLoaded', function() {
+  emailjs.init("G1IqNOPQPv9h7UIMy"); // Public key
+
+  const contactForm = document.getElementById('contactForm'); // Now matches HTML
+
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
     
-    emailjs.init("G1IqNOPQPv9h7UIMy"); // Your public key
-
-    const contactForm = document.getElementById('contactForm');
-
-    if (contactForm) {
-      contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        // fill hidden time field
-        const now = new Date().toLocaleString();
-        document.getElementById('time').value = now;
-
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const buttonText = submitBtn.querySelector('span');
-        const originalText = buttonText.textContent;
-
-        buttonText.textContent = 'Sending...';
-        submitBtn.disabled = true;
-
-        emailjs.sendForm(
-          'service_t2yei28',   // Your service ID
-          'ku128hs',           // Your template ID
-          this
-        )
-        .then(() => {
-          alert('Your message has been sent successfully! Thank you!');
-          contactForm.reset();
-        })
-        .catch((error) => {
-          console.error('EmailJS error:', error);
-          alert('Sorry, there was an error sending your message. Please try again.');
-        })
-        .finally(() => {
-          buttonText.textContent = originalText;
-          submitBtn.disabled = false;
-        });
-      });
-    }
+    // Set hidden time field
+    document.getElementById('time').value = new Date().toLocaleString();
     
+    // Update button state
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const buttonText = submitBtn.querySelector('span');
+    const originalText = buttonText.textContent;
+    
+    buttonText.textContent = 'Sending...';
+    submitBtn.disabled = true;
+
+    // Send email
+    emailjs.sendForm(
+      'service_t2yei28', // Service ID
+      'ku128hs',          // Template ID
+      contactForm         // Form element
+    )
+    .then(() => {
+      alert('Message sent successfully!');
+      contactForm.reset();
+    })
+   catch((error) => {
+  // Enhanced error logging
+  console.error('Full EmailJS Error:', error);
+  alert(`Error ${error.status}: ${error.text}`);
+    })
+    .finally(() => {
+      buttonText.textContent = originalText;
+      submitBtn.disabled = false;
+    });
   });
+});
 </script>
 
 
