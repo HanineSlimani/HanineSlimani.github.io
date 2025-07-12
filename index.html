@@ -245,7 +245,7 @@
             </div>
           <div class="contact-form">
   <h2>Got a project in <span style="color: var(--purple);">mind?</span></h2>
-  <form id="contactForm">
+  <form id="contactForm" method="POST">
     <div class="form-group">
       <label for="name">Your name</label>
       <input type="text" id="name" name="name" class="form-control" placeholder="Name" required>
@@ -320,47 +320,52 @@
                 });
             });
          </script>
-   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>
-  (function(){
-    emailjs.init("G1IqNOPQPv9h7UIMy"); // Your public key, as a string
+  window.addEventListener('DOMContentLoaded', function(){
+    
+    emailjs.init("G1IqNOPQPv9h7UIMy"); // Your public key
 
     const contactForm = document.getElementById('contactForm');
 
     if (contactForm) {
-     contactForm.addEventListener('submit', function(e) {
-  e.preventDefault();
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
 
-  // fill hidden time field
-  const now = new Date().toLocaleString();
-  document.getElementById('time').value = now;
+        // fill hidden time field
+        const now = new Date().toLocaleString();
+        document.getElementById('time').value = now;
 
-  const submitBtn = contactForm.querySelector('button[type="submit"]');
-  const buttonText = submitBtn.querySelector('span');
-  const originalText = buttonText.textContent;
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const buttonText = submitBtn.querySelector('span');
+        const originalText = buttonText.textContent;
 
-  buttonText.textContent = 'Sending...';
-  submitBtn.disabled = true;
+        buttonText.textContent = 'Sending...';
+        submitBtn.disabled = true;
 
-  emailjs.sendForm(
-    'service_t2yei28',
-    'ku128hs',
-    this
-  )
-  .then(() => {
-    alert('Your message has been sent successfully! Thank you!');
-    contactForm.reset();
-  })
-  .catch((error) => {
-    console.error('EmailJS error:', error);
-    alert('Sorry, there was an error sending your message. Please try again.');
-  })
-  .finally(() => {
-    buttonText.textContent = originalText;
-    submitBtn.disabled = false;
+        emailjs.sendForm(
+          'service_t2yei28',   // Your service ID
+          'ku128hs',           // Your template ID
+          this
+        )
+        .then(() => {
+          alert('Your message has been sent successfully! Thank you!');
+          contactForm.reset();
+        })
+        .catch((error) => {
+          console.error('EmailJS error:', error);
+          alert('Sorry, there was an error sending your message. Please try again.');
+        })
+        .finally(() => {
+          buttonText.textContent = originalText;
+          submitBtn.disabled = false;
+        });
+      });
+    }
+    
   });
-});
 </script>
+
 
     
   <script>
