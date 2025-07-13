@@ -497,31 +497,41 @@
         <div class="project-content">
             <div class="project-description">
                 <h2>Project Overview</h2>
-                <p>This project focused on building an interactive sales and profit analysis dashboard for a retail store using Superstore data. The objective was to provide insights into sales performance across various product categories, regions, and timeframes.</p>
+                <p>Developed a comprehensive Power BI dashboard solution for retail sales analysis using Superstore data, transforming raw transactional data into actionable business insights. This project demonstrates end-to-end business intelligence capabilities, from data modeling to interactive visualization design.</p>
+                <p>The dashboard serves as a strategic tool for retail decision-makers, enabling them to monitor sales performance, identify growth opportunities, and optimize product portfolios across different regions and customer segments.</p>
             </div>
 
             <div class="key-features">
-                <h2>Scope of Work</h2>
+                <h2>Key Features</h2>
                 <ul>
-                    <li>Connected and cleaned Superstore datasets to ensure consistency.</li>
-                    <li>Created DimCustomer, DimProduct, DimGeographique, and DimDate tables, establishing one-to-many relationships with the fact table.</li>
-                    <li>Addressed data challenges such as non-unique ProductID, CustomerID, and Zipcode, by introducing surrogate keys.</li>
-                    <li>Built custom DAX measures to calculate KPIs such as Total Sales, Profit Margins, and Sales Growth Rate.</li>
-                    <li>Designed an interactive dashboard with features like:</i>
-                    <i>   - Dynamic slicers for filtering by region, product category, and customer segments.
-                          - Drill-through pages for deeper analysis of regional sales.
-                          - Trend lines and heatmaps to identify sales peaks and underperforming products.</li>
+                  <strong>Data Architecture & Modeling</strong>
+                    <li>Dimensional Data Model: Designed and implemented a star schema with DimCustomer, DimProduct, DimGeographique, and DimDate tables connected to a central fact table through one-to-many relationships</li>
+                    <li>Data Quality Solutions: Resolved data integrity challenges by implementing surrogate keys to address non-unique ProductID, CustomerID, and Zipcode issues</li>
+                    <li>Normalized Structure: Created a scalable data model optimized for performance and analytical flexibility</li>
 
+                 <strong>Interactive Dashboard Components</strong>
+                    <li>Dynamic Filtering System: Implemented advanced slicers enabling real-time filtering by region, product category, and customer segments.</li>
+                    <li>Drill-Through Analytics: Built dedicated drill-through pages for granular regional sales analysis and performance deep-dives.</li>
+                    <li>isual Analytics: Incorporated trend lines and heatmaps to identify seasonal patterns, sales peaks, and underperforming product categories.</li>
+                    <li>KPI Monitoring: Developed executive-level KPI cards displaying critical metrics at a glance.</li>
+
+
+                  <strong>Advanced Analytics & Calculations</strong>
+                    <li>Custom DAX Measures: Engineered sophisticated DAX formulas for calculating Total Sales, Profit Margins, and Sales Growth Rate.</li>
+                    <li>Performance Metrics: Created comparative analysis capabilities for period-over-period performance tracking.</li>
+                    <li>Profitability Analysis: Built comprehensive profit margin calculations across different business dimensions.</li>
                 </ul>
             </div>
+
 
             <div class="technologies">
                 <h2>Technologies Used</h2>
                 <ul>
-                    <li>Power BI (Data modeling, visualization)</li>
-                    <li>DAX formulas (Sales Growth %, Profitability Analysis)</li>
-                    <li>Power Query for data cleaning</li>
-                    <li>Relationships and surrogate keys for a normalized data model</li>
+                    <li>Power BI Desktop: Primary platform for data modeling, visualization design, and dashboard development</li>
+                    <li>DAX (Data Analysis Expressions): Advanced formula language for creating calculated columns, measures, and KPIs</li>
+                    <li>Power Query: Data transformation and cleansing engine for preprocessing raw datasets</li>
+                    <li>Data Modeling: Implemented star schema architecture with surrogate keys and relationship management</li>
+                    <li>Business Intelligence: Applied BI best practices for performance optimization and user experience design</li>
                 </ul>
             </div>
 
@@ -531,20 +541,20 @@
                 <div class="screenshot-slides">
                 <div class="screenshot-content">
                     <img src="Images/powerbi-1.png" alt="Sales Overview Dashboard" />
-                <p class="screenshot-caption">Budget Dashboard - Provides comprehensive financial overview with expense categorization and visual charts.</p>
+                <p class="screenshot-caption">Interactive Dashboard: Shows the main sales dashboard with KPI cards ($1.33bn sales, $188M profit), trend charts, geographic map, and product category analysis with dynamic filters for region, category, and customer segments.</p>
             </div>
         </div>
           <div class="screenshot-slides">
             <div class="screenshot-content">       
                     <img src="Images/powerbi-2.png" alt="Relations Creation" />
- <p class="screenshot-caption">Budget Dashboard - Provides comprehensive financial overview with expense categorization and visual charts.</p>
+ <p class="screenshot-caption">Data Model: Displays the star schema architecture with dimension tables (DimGeo, DimCustomer, DimProduct) connected to the central Superstore fact table through one-to-many relationships.</p>
             </div>
         </div>
             
           <div class="screenshot-slides">
          <div class="screenshot-content">    
                     <img src="Images/powerbi-3.png" alt="Custom DAX Measures Building" />
- <p class="screenshot-caption">Budget Dashboard - Provides comprehensive financial overview with expense categorization and visual charts.</p>
+ <p class="screenshot-caption">DAX Development: Shows creation of a custom "Profit Margin" measure using DAX formula DIVIDE([Total Profit], [Total Sales]) along with other calculated metrics like Sales Growth and Total Sales.</p>
             </div>
         </div>
  <!-- Navigation arrows -->
@@ -556,16 +566,29 @@
             <span class="dot" onclick="currentSlide(1)"></span>
             <span class="dot" onclick="currentSlide(2)"></span>
             <span class="dot" onclick="currentSlide(3)"></span>
-            <span class="dot" onclick="currentSlide(4)"></span>
         </div>
     </div>   
 
             <div class="project-outcome">
                 <h2>Outcome & Impact</h2>
-                <p>The dashboard empowered users to monitor their business performance in real-time, track key sales trends, and adjust strategies accordingly. The insights generated from the dashboard helped optimize product placement and promotional efforts, resulting in better profit margins and increased sales efficiency.</p>
-            </div>
+                <ul>
+                  <strong>Business Value Delivered</strong>
+                    <li>Enhanced Decision Making: Transformed complex sales data into intuitive visualizations for quick trend identification.</li>
+                    <li>Operational Efficiency: Automated reporting processes and enabled self-service analytics capabilities.</li>
+                    <li>Strategic Insights: Identified high-performing regions and product categories to support strategic planning</li>
+
+                 <strong>Technical Achievements</strong>
+                    <li>Built a scalable data model with efficient DAX calculations and optimized performance.</li>
+                    <li>Created an intuitive dashboard interface enabling independent data exploration.</li>
+                    <li>Consolidated multiple data sources into a single source of truth.</li>
+
+                  <strong>Key Results</strong>
+                    <li>Enabled real-time monitoring across 3 geographic regions and 17 product categories.</li>
+                    <li>Provided drill-down capabilities from high-level KPIs to transaction-level details.</li>
+                    <li>Facilitated data-driven decision making for product portfolio optimization.</li>
+                </ul>
             <a href="index.html" class="btn btn-secondary">← Back to Home</a>
-        </div>
+            </div>
     </main>
 
     <!-- Footer -->
