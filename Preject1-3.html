@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sales Dashboard - Hanine Slimani</title>
+    <title>EDA e-commerce Customer Behavior- Hanine Slimani</title>
     <style>
         /* Global Styles */
         :root {
@@ -279,8 +279,9 @@
     <!-- Project Hero Section -->
     <section class="project-hero">
         <div class="container">
-            <h1>Sales <span>Dashboard</span></h1>
-            <p>Excel-based sales performance analytics with dynamic visualizations</p>
+            <h1>Exploratory Data Analysis on <span>E-commerce Customer Behavior</span></h1>
+            <p>This project analyzes customer behavior in an e-commerce dataset using Python and pandas.</p>
+             <img src="Images/totalspend vs satisfaction and gender.png" alt="Custom DAX Measures Building" />
         </div>
     </section>
 
@@ -298,46 +299,97 @@
         <div class="project-content">
             <div class="project-description">
                 <h2>Project Overview</h2>
-                <p>This Excel dashboard summarizes monthly sales, revenue, and top-performing products or agents using pivot tables and dynamic visuals. It provides a comprehensive view of sales performance that helps businesses make data-driven decisions.</p>
-                <p>The dashboard was designed to simplify the sales monitoring process, allowing sales managers to quickly identify trends, track performance against targets, and spot opportunities for growth.</p>
+                <p>This project is an Exploratory Data Analysis (EDA) of an e-commerce customer dataset. The goal was to understand customer behavior, segment purchasing patterns, and uncover actionable insights based on demographics, satisfaction levels, and membership types. </p>
+                <p>Using Python and data visualization libraries, I analyzed spending trends, identified key customer segments, and explored the relationships between various features.</p>
             </div>
 
             <div class="key-features">
                 <h2>Key Features</h2>
                 <ul>
-                    <li>Monthly and Year-to-Date (YTD) reports with comparison to previous periods</li>
-                    <li>Product performance ranking with dynamic sorting capabilities</li>
-                    <li>Region-based sales analysis with geographic heat maps</li>
-                    <li>Interactive filters for customizable data views</li>
-                    <li>Automated data refresh with one-click update button</li>
-                    <li>Performance-to-target indicators with visual alerts</li>
+                    <li>Data Quality Checks: Detected and handled missing values, duplicates, and inconsistencies across categorical labels.</li>
+                    <li>Descriptive Statistics: Analyzed overall trends in age, spending, purchase recency, and satisfaction.</li>
+                    <li>Segmentation Analysis: Grouped customers by Gender, Membership Type, and Satisfaction Level to uncover targeted spending behavior.</li>
+                    <li>Top/Bottom Analysis: Identified highest spending cities and top individual spenders.</li>
+                    <li>Visual Storytelling: Created clean, informative plots (bar charts, histograms, boxplots, heatmaps) to visually support insights.</li>
+                    <li>Correlation Insights: Explored relationships between numerical features to detect meaningful trends.</li>
                 </ul>
             </div>
 
             <div class="technologies">
                 <h2>Technologies Used</h2>
                 <ul>
-                    <li>Microsoft Excel (Advanced formulas and pivot tables)</li>
-                    <li>Power Query for data cleansing and transformation</li>
-                    <li>Dynamic array formulas for real-time calculations</li>
-                    <li>Conditional formatting for visual KPIs</li>
-                    <li>Data validation for error-proof data entry</li>
+                    <li>Language: Python</li>
+                    <li>Libraries: pandas, matplotlib, seaborn</li>
+                    <li>Environment: Jupyter Notebook</li>
+                    <li>Data Format: CSV (tabular customer data)</li>
                 </ul>
             </div>
 
             <div class="screenshots">
                 <h2>Screenshots</h2>
-                <div class="screenshot-grid">
-                    <img src="images/sales-dashboard-1.jpg" alt="Sales Overview Dashboard" />
-                    <img src="images/sales-dashboard-2.jpg" alt="Product Performance Analysis" />
-                    <img src="images/sales-dashboard-3.jpg" alt="Regional Sales Map" />
-                </div>
+              <div class="carousel-container">
+                <div class="screenshot-slides">
+                <div class="screenshot-content">
+                    <img src="Images/distribution of total spend.png" alt="Sales Overview Dashboard" />
+                <p class="screenshot-caption">Interactive Dashboard: Shows the main sales dashboard with KPI cards ($1.33bn sales, $188M profit), trend charts, geographic map, and product category analysis with dynamic filters for region, category, and customer segments.</p>
             </div>
+        </div>
+          <div class="screenshot-slides">
+            <div class="screenshot-content">       
+                    <img src="Images/total spend per city.png" alt="Relations Creation" />
+ <p class="screenshot-caption">Data Model: Displays the star schema architecture with dimension tables (DimGeo, DimCustomer, DimProduct) connected to the central Superstore fact table through one-to-many relationships.</p>
+            </div>
+        </div>
+            
+          <div class="screenshot-slides">
+         <div class="screenshot-content">    
+                    <img src="Images/spending per gender.png" alt="Custom DAX Measures Building" />
+ <p class="screenshot-caption">DAX Development: Shows creation of a custom "Profit Margin" measure using DAX formula DIVIDE([Total Profit], [Total Sales]) along with other calculated metrics like Sales Growth and Total Sales.</p>
+            </div>
+        </div>
+
+                            <div class="screenshot-slides">
+         <div class="screenshot-content">    
+                    <img src="Images/spending vs satisfaction.png" alt="Custom DAX Measures Building" />
+ <p class="screenshot-caption">DAX Development: Shows creation of a custom "Profit Margin" measure using DAX formula DIVIDE([Total Profit], [Total Sales]) along with other calculated metrics like Sales Growth and Total Sales.</p>
+            </div>
+        </div>
+
+                            <div class="screenshot-slides">
+         <div class="screenshot-content">    
+                    <img src="Images/totalspend vs satisfaction and gender.png" alt="Custom DAX Measures Building" />
+ <p class="screenshot-caption">DAX Development: Shows creation of a custom "Profit Margin" measure using DAX formula DIVIDE([Total Profit], [Total Sales]) along with other calculated metrics like Sales Growth and Total Sales.</p>
+            </div>
+        </div>
+
+                                              <div class="screenshot-slides">
+         <div class="screenshot-content">    
+                    <img src="Images/days since last purchase.png" alt="Custom DAX Measures Building" />
+ <p class="screenshot-caption">DAX Development: Shows creation of a custom "Profit Margin" measure using DAX formula DIVIDE([Total Profit], [Total Sales]) along with other calculated metrics like Sales Growth and Total Sales.</p>
+            </div>
+        </div>
+ <!-- Navigation arrows -->
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+        
+        <!-- Dots/indicators -->
+        <div class="dots-container">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+            <span class="dot" onclick="currentSlide(6)"></span>
+
+            
+        </div>
+    </div>   
+
 
             <div class="project-outcome">
                 <h2>Outcome & Impact</h2>
-                <p>This sales dashboard has been implemented by multiple businesses, resulting in an average of 15% reduction in reporting time and improved decision-making capabilities.</p>
-                <p>Sales managers reported being able to identify underperforming regions and products much faster, allowing for timely interventions that helped improve overall sales performance by up to 12% in some cases.</p>
+                <p>Through this exploratory data analysis, I uncovered key behavioral patterns in e-commerce customers, such as the significant correlation between satisfaction level and spending, and the higher average spend among premium members. Geographic analysis revealed top-performing cities, while recency and segmentation insights identified valuable customer groups.</p>
+                <p>These findings demonstrate my ability to clean, analyze, and extract actionable insights from real-world data, providing value for business decisions like customer targeting, retention strategies, and performance tracking.</p>
             </div>
             <a href="index.html" class="btn btn-secondary">← Back to Home</a>
         </div>
