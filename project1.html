@@ -474,7 +474,7 @@
     <!-- Project Hero Section -->
   <section class="project-hero">
     <div class="container">
-      <h1>Personal Finance <span>Tracker (Excel)</span></h1>
+      <h1>Financal Planning <span>Tracker (Excel)</span></h1>
       <p>This Excel tracker involved creating a dynamic, rolling personal finance tracker to monitor income, bills, expenses, and savings over time. The goal was to provide users with clear insights into their financial health and enable them to plan future budgets more effectively.</p>
       <img src="Images/Finance Tracker.png" alt="Finance Tracker" class="project-image"/> 
         </div>
@@ -743,52 +743,50 @@
         }
     </script>
   
-  <script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
     let slideIndex = 1;
-showSlides(slideIndex);
+    showSlides(slideIndex);
 
-// Auto-rotate testimonials
-setInterval(function() {
-    plusSlides(1);
-}, 8000); // Change testimonial every 8 seconds
+    setInterval(function () {
+      plusSlides(1);
+    }, 8000);
 
-function plusSlides(n) {
-    showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-    showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-    let i;
-    let slides = document.getElementsByClassName("testimonial-slide");
-    let dots = document.getElementsByClassName("nav-dot");
-    
-    if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
-    
-    for (i = 0; i < slides.length; i++) {
-        slides[i].className = slides[i].className.replace(" active", "");
-    }
-    
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    
-    slides[slideIndex-1].className += " active";
-    dots[slideIndex-1].className += " active";
-}
-
-// Add event listeners when DOM is fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('.prev-btn').addEventListener('click', function() {
-        plusSlides(-1);
+    document.querySelector('.prev-btn').addEventListener('click', function () {
+      plusSlides(-1);
     });
 
-    document.querySelector('.next-btn').addEventListener('click', function() {
-        plusSlides(1);
+    document.querySelector('.next-btn').addEventListener('click', function () {
+      plusSlides(1);
     });
-});</script>
+
+    function plusSlides(n) {
+      showSlides((slideIndex += n));
+    }
+
+    function currentSlide(n) {
+      showSlides((slideIndex = n));
+    }
+
+    function showSlides(n) {
+      let slides = document.getElementsByClassName('testimonial-slide');
+      let dots = document.getElementsByClassName('nav-dot');
+
+      if (n > slides.length) slideIndex = 1;
+      if (n < 1) slideIndex = slides.length;
+
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove('active');
+      }
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.remove('active');
+      }
+
+      slides[slideIndex - 1].classList.add('active');
+      dots[slideIndex - 1].classList.add('active');
+    }
+  });
+</script>
 </body>
 </html>
+
